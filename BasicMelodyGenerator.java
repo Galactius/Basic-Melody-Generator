@@ -34,7 +34,12 @@ public class BasicMelodyGenerator
       
       return notes[randIndex]; 
    }
-   
+
+   //Current issue: 11/29/20 -> scaleNotes is not functional.
+   //Desc: scaleNotes is meant to return a String[] with the notes in the user-entered scale,
+   //however, the switch case statement may be fundamentally incompatible for this specific task.
+   //alternative approaches involve nested-if-else statements, a HashMap, or a List/ArrayList.
+
    /*public static String[] scaleNotes(String scale) 
    {  
       String fixedScale = scale.toLowerCase();   

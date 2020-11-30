@@ -41,7 +41,7 @@ public class BasicMelodyGenerator
    //alternative approaches involve nested-if-else statements, a HashMap, or a List/ArrayList.
 
    /*public static String[] scaleNotes(String scale) 
-   {  
+   //{
       String fixedScale = scale.toLowerCase();   
       switch(fixedScale) 
       {
@@ -51,7 +51,7 @@ public class BasicMelodyGenerator
          
          case "c major": 
          return String[] cMajNotes = {"C","D","E","F","G","A"};
-         break;  w
+         break;
          
          case "c minor": 
          return String[] cMinNotes = {"C","D","D#","F","G","G#","A#","C"}; 

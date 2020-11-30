@@ -51,7 +51,7 @@ public class BasicMelodyGenerator
          
          case "c major": 
          return String[] cMajNotes = {"C","D","E","F","G","A"};
-         break;  
+         break;  w
          
          case "c minor": 
          return String[] cMinNotes = {"C","D","D#","F","G","G#","A#","C"}; 

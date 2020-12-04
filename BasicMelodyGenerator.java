@@ -11,20 +11,27 @@ public class BasicMelodyGenerator
       System.out.println("---------------------Basic Melody Generator---------------------"); 
          
       Scanner in = new Scanner(System.in);
-      System.out.print("Enter the number of random notes in your melody to generate: ");  
-      int numNotes = in.nextInt();
-      
-      System.out.println("Enter Scale to confine melody notes: "); 
-      String input = in.nextLine();     
+      System.out.print("Enter the number of random notes in your melody to generate: ");
+      String preNum = in.nextLine();
+      int numNotes = Integer.parseInt(preNum);
+
+      //Note: Because of certain errors involving the using scanner nextLine after nextInt, the
+      //number of notes to be printed is entered as a string, then parsed into an int and
+      //used in the for loop further below.
+
+      System.out.print("Enter Scale to confine melody notes: ");
+      String input = in.nextLine();
+
+      String[] notes = scaleNotes(input).split(",");
          
       System.out.println("Generating random notes... ");
-      
-      for(int i = 0; i < numNotes; i++) 
-      { 
-         //System.out.print(randNote(scaleNotes(input)) + " ");
+
+
+
+      for(int i = 0; i < numNotes; i++)
+      {
+         System.out.print(randNote(notes) + " ");
       }
-      
-      in.close(); 
    } 
    
    public static String randNote(String[] notes) 
@@ -35,32 +42,29 @@ public class BasicMelodyGenerator
       return notes[randIndex]; 
    }
 
-   //Current issue: 11/29/20 -> scaleNotes is not functional.
-   //Desc: scaleNotes is meant to return a String[] with the notes in the user-entered scale,
-   //however, the switch case statement may be fundamentally incompatible for this specific task.
-   //alternative approaches involve nested-if-else statements, a HashMap, or a List/ArrayList.
-
-   /*public static String[] scaleNotes(String scale) 
-   //{
-      String fixedScale = scale.toLowerCase();   
+   public static String scaleNotes(String scale)
+   {
+      String fixedScale = scale.toLowerCase();
+      String resp;
       switch(fixedScale) 
       {
          case "c": 
-         return String[] cNotes = {"C","C#","D","D#","E","F","F#","G","G#","A","A#"};
-         break; 
+         resp =  "C,C#,D,D#,E,F,F#,G,G#,A,A#";
+         break;
          
          case "c major": 
-         return String[] cMajNotes = {"C","D","E","F","G","A"};
+         resp = "C,D,E,F,G,A";
          break;
          
          case "c minor": 
-         return String[] cMinNotes = {"C","D","D#","F","G","G#","A#","C"}; 
-         break; 
+         resp = "C,D,D#,F,G,G#,A#,C";
+         break;
          
          default:
-         return String[] naS = {"Scale not available"}; //n.a.S. means not a scale
-         break; 
-      }*/
-      
-   //}
+         resp = "Scale not available";
+         break;
+      }
+
+      return resp;
+   }
 }
